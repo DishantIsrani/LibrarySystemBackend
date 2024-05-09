@@ -84,7 +84,7 @@ app.get('/api/get-userdetails/', async (req, res) => {
 
 
 app.get('/api/get-userdetails/:id', async (req, res) => {
-    const userid = req.params;
+    const userid = req.params.id;
 
     try {
         const user = await User.findById(userid);
@@ -113,7 +113,7 @@ app.get('/api/get-books', async (req, res) => {
 
 
 app.get('/api/get-books/:id', async (req, res) => {
-    const booksid = req.params;
+    const booksid = req.params.id;
 
     try {
         const book = await Book.findById(booksid);
@@ -129,7 +129,7 @@ app.get('/api/get-books/:id', async (req, res) => {
 
 
 app.put('/api/updatebook/:id', async (req, res) => {
-    const updateid = req.params;
+    const updateid = req.params.id;
     const { title, author, genre } = req.body;
 
     try {
@@ -145,7 +145,7 @@ app.put('/api/updatebook/:id', async (req, res) => {
 });
 
 app.delete('/api/delete-books/:id', async (req, res) => {
-    const deleteid = req.params;
+    const deleteid = req.params.id;
 
     try {
         const deletedBook = await Book.findByIdAndDelete(deleteid);
